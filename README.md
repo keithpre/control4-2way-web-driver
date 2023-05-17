@@ -13,27 +13,27 @@ Examples:
 ----------
 Commands:
 - get
--- Get the current state of a variable for a device by proxy id (Can pass multiple ids in comma seperated list)
--- example- http://10.0.1.70:9000/?command=get&proxyID=30&variableID=1001
--- Result - {"1001":"0","success":"true"}
+  - Get the current state of a variable for a device by proxy id (Can pass multiple ids in comma seperated list)
+  - example- http://10.0.1.70:9000/?command=get&proxyID=30&variableID=1001
+  - Result - {"1001":"0","success":"true"}
 -- This result means the dimmer light with proxyID 30 is currently at 0%
 - set
--- Get the current state of a variable for a device by proxy id
--- example- http://10.0.1.70:9000/?command=set&proxyID=30&variableID=1001&newValue=100
--- Result - {"success":"true"}
--- This set dimmer light with proxyID 30 to 100%
+  - Get the current state of a variable for a device by proxy id
+  - example- http://10.0.1.70:9000/?command=set&proxyID=30&variableID=1001&newValue=100
+  - Result - {"success":"true"}
+  - This set dimmer light with proxyID 30 to 100%
 - getvariables
--- Get list of all variables with name and IDs for a device:
--- example- http://10.0.1.70:9000/?command=getvariables&proxyID=25
--- Result - Result: {"1005":"MAX_ON_LEVEL","1006":"MIN_ON_LEVEL","1003":"CLICK_RAMP_RATE_DOWN","1007":"START_ON_LEVEL","1000":"LIGHT_STATE","1004":"PRESET_LEVEL","1008":"START_ON_TIME_MS","1001":"LIGHT_LEVEL","1002":"CLICK_RAMP_RATE_UP","success":"true"}
+  - Get list of all variables with name and IDs for a device:
+  - example- http://10.0.1.70:9000/?command=getvariables&proxyID=25
+  - Result - Result: {"1005":"MAX_ON_LEVEL","1006":"MIN_ON_LEVEL","1003":"CLICK_RAMP_RATE_DOWN","1007":"START_ON_LEVEL","1000":"LIGHT_STATE","1004":"PRESET_LEVEL","1008":"START_ON_TIME_MS","1001":"LIGHT_LEVEL","1002":"CLICK_RAMP_RATE_UP","success":"true"}
 - getvariables2
--- Get list of all variables for a device along with info about them (Similar to getvariables, but more detail and different structure)
--- example- http://10.0.1.70:9000/?command=getvariables2&proxyID=25
--- Result - {{"description":"","deviceid":"95","hidden":"0","name":"SCALE","readonly":"1","type":"1","value":"F"},"1101":{"description":"","deviceid":"95","hidden":"1","name":"TEMPERATURE","readonly":"1","type":"2","value":"221"},"1102":{"description":"","deviceid":"95","hidden":"1","name":"HEAT_SETPOINT","readonly":"0","type":"2","value":"177"},"1103":{"description":"","deviceid":"95","hidden":"1","name":"COOL_SETPOINT","readonly":"0","type":"2","value":"266"},"1104":{"description":"","deviceid":"95","hidden":"0","name":"HVAC_MODE","readonly":"1","type":"1","value":"Off"},"1105":{"description":"","deviceid":"95","hidden":"0","name":"FAN_MODE","readonly":"1","type":"1","value":"Auto"},"1106".....}
+  - Get list of all variables for a device along with info about them (Similar to getvariables, but more detail and different structure)
+  - example- http://10.0.1.70:9000/?command=getvariables2&proxyID=25
+  - Result - {{"description":"","deviceid":"95","hidden":"0","name":"SCALE","readonly":"1","type":"1","value":"F"},"1101":{"description":"","deviceid":"95","hidden":"1","name":"TEMPERATURE","readonly":"1","type":"2","value":"221"},"1102":{"description":"","deviceid":"95","hidden":"1","name":"HEAT_SETPOINT","readonly":"0","type":"2","value":"177"},"1103":{"description":"","deviceid":"95","hidden":"1","name":"COOL_SETPOINT","readonly":"0","type":"2","value":"266"},"1104":{"description":"","deviceid":"95","hidden":"0","name":"HVAC_MODE","readonly":"1","type":"1","value":"Off"},"1105":{"description":"","deviceid":"95","hidden":"0","name":"FAN_MODE","readonly":"1","type":"1","value":"Auto"},"1106".....}
 - getdevices
--- Get list of all variables for a device along with info about them (Similar to getvariables, but more detail and different structure)
--- example- http://10.0.1.70:9000/?command=getdevices
--- Result - {"30":{"deviceName":"Entry8","driverFileName":"light_v2.c4i","protocol":{"29":{"deviceName":"Entry8","driverFileName":"adaptive_phase_dimmer.c4i"}},"roomId":12,"roomName":"Lower"},"31":{"deviceName":"Stairs6","driverFileName":"adaptive_phase_dimmer.c4i","proxies":{"32":{"deviceName":"Stairs6","driverFileName":"light_v2.c4i"}}, ......}
+  - Get list of all variables for a device along with info about them (Similar to getvariables, but more detail and different structure)
+  - example- http://10.0.1.70:9000/?command=getdevices
+  - Result - {"30":{"deviceName":"Entry8","driverFileName":"light_v2.c4i","protocol":{"29":{"deviceName":"Entry8","driverFileName":"adaptive_phase_dimmer.c4i"}},"roomId":12,"roomName":"Lower"},"31":{"deviceName":"Stairs6","driverFileName":"adaptive_phase_dimmer.c4i","proxies":{"32":{"deviceName":"Stairs6","driverFileName":"light_v2.c4i"}}, ......}
 
 How to use:
 ------------
