@@ -5,8 +5,8 @@
     <name>Web 2-Way</name>
     <model>Web 2-Way</model>
     <created>12/10/2016 7:01 AM</created>
-    <modified>12/10/2016 10:20 AM</modified>
-    <version>49</version>
+    <modified>12/10/2022 10:20 AM</modified>
+    <version>51</version>
     <small>devices_sm\C4.gif</small>
     <large>devices_lg\C4.gif</large>
     <control>lua_gen</control>
@@ -160,7 +160,13 @@ end
 
 function processRequest(params)
   if (params.proxyID == nil) then
-    msg = '{"success":"false"}';
+    if (params.command == 'getdevices') then
+      variables = C4:GetDevices()
+      variables['success'] = true
+      msg = C4:JsonEncode(variables)
+    else
+      msg = '{"success":"false"}';
+    end
   elseif (params.command == 'set') then
     setVariable(params.proxyID, params.variableID, params.newValue)
     msg = '{"success":"true"}';
@@ -172,10 +178,14 @@ function processRequest(params)
     msg = msg .. '"success":"true"}'
   elseif (params.command == 'getvariables') then
     msg = '{';
-    for key,value in pairs(C4:GetDeviceVariables(params.proxyID)) do 
-	  msg = msg .. '"' .. key .. '":"' .. value.name .. '",'
-	end
-	msg = msg .. '"success":"true"}'
+    for key,value in pairs(C4:GetDeviceVariables(params.proxyID)) do
+         msg = msg .. '"' .. key .. '":"' .. value.name .. '",'
+       end
+       msg = msg .. '"success":"true"}'
+  elseif (params.command == 'getvariables2') then
+    variables = C4:GetDeviceVariables(params.proxyID)
+    variables['success'] = true
+    msg = C4:JsonEncode(variables)
   else
     msg = '{"success":"false"}';
   end
